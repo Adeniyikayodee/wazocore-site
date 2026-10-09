@@ -123,6 +123,12 @@ pre .c{color:#86868B}
 .person img{width:112px;height:112px;border-radius:50%;object-fit:cover;flex:none}
 .person p{font-size:15px}
 
+.from{margin-top:56px;text-align:center}
+.from+.fine{margin-top:36px}
+.logos{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.logos li{width:128px;height:76px;background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;padding:14px}
+.logos li.dk{background:#1C1917}
+.logos img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
 footer{padding:40px 0 70px;font-size:12px;color:var(--muted);background:var(--soft);border-top:1px solid #E8E8ED}
 footer p{margin:0 0 10px;max-width:820px}
 
@@ -133,7 +139,7 @@ footer p{margin:0 0 10px;max-width:820px}
 .rv.in .bar{transform:scaleX(1)}
 .no-js .rv{opacity:1;transform:none}.no-js .rv .bar{transform:none}
 
-@media (max-width:860px){
+@media (max-width:860px){.logos li{width:104px;height:64px;padding:11px}
   section{padding:76px 0}.hero{padding-top:64px}.stage{margin-top:48px;padding:26px 0 40px}
   .nav nav{display:none}
   .grid2,.grid3,.split{grid-template-columns:minmax(0,1fr)}.split{gap:34px}
@@ -320,6 +326,10 @@ print(reply.choices[0].message.content)
       <div class="tile person rv"><img src="assets/kayode.jpg" alt="Kayode Adeniyi" loading="lazy" width="112" height="112"><div><h3>Kayode Adeniyi</h3><p>Team lead and AI Research Engineer. PhD researcher, Imperial College London. Built the model, the training and the evaluation.</p></div></div>
       <div class="tile person rv"><img src="assets/omowonuola.jpg" alt="Omowonuola Adekanmbi" loading="lazy" width="112" height="112"><div><h3>Omowonuola Adekanmbi</h3><p>Legal Officer. Dual Qualified Lawyer (Nigeria and England &amp; Wales). Master of Law, University of Cambridge. Leads licensing and compliance.</p></div></div>
       <div class="tile person rv"><img src="assets/afolasade.jpg" alt="Afolasade Adeniyi" loading="lazy" width="112" height="112"><div><h3>Afolasade Adeniyi</h3><p>Product Manager and Data Analyst. Kwara State University alumna. Led user testing and product.</p></div></div>
+    </div>
+    <div class="from rv">
+      <p class="eyebrow">Built by a team from</p>
+      <ul class="logos" aria-label="Institutions and companies the team members have studied or worked at"><li><img src="assets/logos/imperial.png" alt="Imperial College London" loading="lazy"></li><li><img src="assets/logos/lse.png" alt="London School of Economics" loading="lazy"></li><li><img src="assets/logos/oxford.png" alt="University of Oxford" loading="lazy"></li><li><img src="assets/logos/undp.png" alt="United Nations Development Programme" loading="lazy"></li><li><img src="assets/logos/flutterwave.png" alt="Flutterwave" loading="lazy"></li><li><img src="assets/logos/unilorin.png" alt="University of Ilorin" loading="lazy"></li><li><img src="assets/logos/kwasu.png" alt="Kwara State University" loading="lazy"></li><li><img src="assets/logos/cowrywise.png" alt="Cowrywise" loading="lazy"></li><li><img src="assets/logos/cambridge.png" alt="University of Cambridge" loading="lazy"></li><li class="dk"><img src="assets/logos/templars.png" alt="Templars" loading="lazy"></li><li><img src="assets/logos/babcock.png" alt="Babcock University" loading="lazy"></li></ul>
     </div>
     <p class="fine center">An entry to the National AI Innovation Challenge (NAIC) 2026, Innovation &amp; Enterprise Track, PS1: Developer Infrastructure.</p>
   </div>
