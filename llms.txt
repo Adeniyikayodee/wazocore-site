@@ -2,7 +2,7 @@
 
 > WazoCore is N-ATLaS, Nigeria's open language model, with 15,000 new Yoruba, Hausa and Igbo tokens. Text in these languages takes 1.4 to 1.6 times fewer tokens, so the same laptop writes it 1.6 to 1.7 times faster. It ships as a standard GGUF file that runs in llama.cpp and LM Studio behind an OpenAI-compatible API, with no change to application code. Full name: "WazoCore Powered by Awarri."
 
-WazoCore is an entry to the National AI Innovation Challenge (NAIC) 2026 in Nigeria, Innovation & Enterprise Track, Problem Statement 1: Developer Infrastructure. It was built by the WazoCore Team: Kayode Adeniyi (team lead, AI Research Engineer, PhD researcher at Imperial College London), Omowonuola Adekanmbi (Legal Officer, Dual Qualified Lawyer in Nigeria and England & Wales, Master of Law from the University of Cambridge) and Afolasade Adeniyi (Product Manager and Data Analyst, Kwara State University alumna).
+WazoCore is an entry to the National AI Innovation Challenge (NAIC) 2026 in Nigeria, Innovation & Enterprise Track, Problem Statement 1: Developer Infrastructure. It was built by the WazoCore Team: Kayode Adeniyi (team lead, AI Research Engineer, PhD Engineering Researcher at Imperial College London), Omowonuola Adekanmbi (Legal Officer, Dual Qualified Lawyer in Nigeria and England & Wales, Master of Law from the University of Cambridge) and Afolasade Adeniyi (Product Manager and Data Analyst, BSc Economics from Kwara State University).
 
 Key facts, all measured:
 
