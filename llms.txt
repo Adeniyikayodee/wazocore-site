@@ -1,0 +1,38 @@
+# WazoCore
+
+> WazoCore is N-ATLaS, Nigeria's open language model, with 15,000 new Yoruba, Hausa and Igbo tokens. Text in these languages takes 1.4 to 1.6 times fewer tokens, so the same laptop writes it 1.6 to 1.7 times faster. It ships as a standard GGUF file that runs in llama.cpp and LM Studio behind an OpenAI-compatible API, with no change to application code. Full name: "WazoCore Powered by Awarri."
+
+WazoCore is an entry to the National AI Innovation Challenge (NAIC) 2026 in Nigeria, Innovation & Enterprise Track, Problem Statement 1: Developer Infrastructure. It was built by the WazoCore Team: Kayode Adeniyi (team lead, AI Research Engineer, PhD researcher at Imperial College London) and Afolasade Adeniyi (Product Manager and Data Analyst, Kwara State University alumna).
+
+Key facts, all measured:
+
+- Base model: NCAIR1/N-ATLaS (Llama-3 architecture, 8B parameters). The vocabulary grows from 128,256 to 143,256 tokens. Every original token keeps its id and its exact embedding.
+- Languages: Yoruba, Hausa, Igbo. English tokenises as before.
+- Tokens per word, N-ATLaS to WazoCore: Yoruba 2.87 to 1.91, Hausa 2.12 to 1.34, Igbo 2.53 to 1.56. English is 1.24.
+- Speed in words per second against N-ATLaS, llama.cpp on one laptop CPU: Yoruba 1.63x, Hausa 1.61x, Igbo 1.72x.
+- Translation quality, chrF++ change against N-ATLaS with 95% intervals, 700 test sentences per language, two training runs: Yoruba +2.2 (+1.5, +2.9), Hausa -0.4 (-0.8, +0.1), Igbo +0.2 (-0.4, +0.8).
+- Shipped Q4_K_M file against the original Q4_K_M file: Yoruba +1.7 (+0.3, +3.1), Hausa -0.3 (-1.1, +0.6), Igbo -0.1 (-1.4, +1.2).
+- Method: 15,000 BPE merges learned on top of the N-ATLaS tokenizer; new embeddings initialised from the mean of their pieces; the new rows and four of 32 transformer layers trained on the original model's own translations and on professional human translations, with a KL anchor to the original.
+- Known limits: about 1 reply in 1,000 contains a broken character; Yoruba replies loop slightly more often than the original (5 and 11 of 700 against 2); quality was scored on English to Yoruba, Hausa and Igbo translation only.
+- Licence: model weights under the N-ATLaS Open-Source Research and Innovation License; toolkit code under Apache-2.0.
+- N-ATLaS is an initiative of the Federal Ministry of Communications, Innovation and Digital Economy, and powered by Awarri Technologies.
+
+## Site
+
+- [WazoCore home page](https://adeniyikayodee.github.io/wazocore-site/): overview, results, quick start and team
+- [Demo video](https://adeniyikayodee.github.io/wazocore-site/assets/wazocore-demo.mp4): N-ATLaS and WazoCore answering the same request side by side in LM Studio, 4 minutes 49 seconds
+- [The problem](https://adeniyikayodee.github.io/wazocore-site/#why): why Nigerian languages cost more tokens, with a tokens-per-word chart
+- [How it works](https://adeniyikayodee.github.io/wazocore-site/#how): the three steps
+- [Results](https://adeniyikayodee.github.io/wazocore-site/#results): speed, quality with intervals, and known limits
+- [Get started](https://adeniyikayodee.github.io/wazocore-site/#start): download, serve and call the model
+
+## Model and code
+
+- [Model on Hugging Face](https://huggingface.co/mkbadeniyi/WazoCore-8B-v6-long): the Q4_K_M GGUF, full-precision weights, tokenizer and model card
+- [Toolkit on GitHub](https://github.com/Adeniyikayodee/wazocore): tokenizer expansion, training, GGUF export and evaluation code, with raw results
+- [Method and results](https://github.com/Adeniyikayodee/wazocore/blob/main/docs/METHOD.md): the release recipe, evaluation protocol, every result and the limits of the evidence
+
+## Optional
+
+- [N-ATLaS base model](https://huggingface.co/NCAIR1/N-ATLaS): the model WazoCore is built from
+- [NAIC programme page](https://ncair.nitda.gov.ng/naic/): the challenge this was submitted to
