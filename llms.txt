@@ -2,7 +2,7 @@
 
 > WazoCore is N-ATLaS, Nigeria's open language model, with 15,000 new Yoruba, Hausa and Igbo tokens. Text in these languages takes 1.4 to 1.6 times fewer tokens, so the same laptop writes it 1.6 to 1.7 times faster. It ships as a standard GGUF file that runs in llama.cpp and LM Studio behind an OpenAI-compatible API, with no change to application code. Full name: "WazoCore Powered by Awarri."
 
-WazoCore is an entry to the National AI Innovation Challenge (NAIC) 2026 in Nigeria, Innovation & Enterprise Track, Problem Statement 1: Developer Infrastructure. It was built by the WazoCore Team: Kayode Adeniyi (team lead, AI Research Engineer, PhD researcher at Imperial College London) and Afolasade Adeniyi (Product Manager and Data Analyst, Kwara State University alumna).
+WazoCore is an entry to the National AI Innovation Challenge (NAIC) 2026 in Nigeria, Innovation & Enterprise Track, Problem Statement 1: Developer Infrastructure. It was built by the WazoCore Team: Kayode Adeniyi (team lead, AI Research Engineer, PhD researcher at Imperial College London), Afolasade Adeniyi (Product Manager and Data Analyst, Kwara State University alumna) and Omowonuola Adekanmbi (Legal and Licensing Lead, solicitor of England & Wales and Nigeria, LLM University of Cambridge).
 
 Key facts, all measured:
 
@@ -20,7 +20,7 @@ Key facts, all measured:
 ## Site
 
 - [WazoCore home page](https://adeniyikayodee.github.io/wazocore-site/): overview, results, quick start and team
-- [Demo video](https://adeniyikayodee.github.io/wazocore-site/assets/wazocore-demo.mp4): N-ATLaS and WazoCore answering the same request side by side in LM Studio, 4 minutes 49 seconds
+- [Demo video](https://adeniyikayodee.github.io/wazocore-site/assets/wazocore-demo.mp4): N-ATLaS and WazoCore answering the same request side by side in LM Studio, 4 minutes 45 seconds
 - [The problem](https://adeniyikayodee.github.io/wazocore-site/#why): why Nigerian languages cost more tokens, with a tokens-per-word chart
 - [How it works](https://adeniyikayodee.github.io/wazocore-site/#how): the three steps
 - [Results](https://adeniyikayodee.github.io/wazocore-site/#results): speed, quality with intervals, and known limits
