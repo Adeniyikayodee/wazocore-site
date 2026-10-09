@@ -125,8 +125,8 @@ pre .c{color:#86868B}
 
 .from{margin-top:56px;text-align:center}
 .from+.fine{margin-top:36px}
-.logos{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-.logos li{width:128px;height:76px;background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;padding:14px}
+.logos{list-style:none;margin:22px auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:980px}
+.logos li{width:228px;height:132px;background:#fff;border-radius:22px;display:flex;align-items:center;justify-content:center;padding:26px 28px}
 .logos li.dk{background:#1C1917}
 .logos img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
 footer{padding:40px 0 70px;font-size:12px;color:var(--muted);background:var(--soft);border-top:1px solid #E8E8ED}
@@ -139,7 +139,7 @@ footer p{margin:0 0 10px;max-width:820px}
 .rv.in .bar{transform:scaleX(1)}
 .no-js .rv{opacity:1;transform:none}.no-js .rv .bar{transform:none}
 
-@media (max-width:860px){.logos li{width:104px;height:64px;padding:11px}
+@media (max-width:860px){.logos{gap:12px}.logos li{width:calc(50% - 6px);height:112px;padding:22px}
   section{padding:76px 0}.hero{padding-top:64px}.stage{margin-top:48px;padding:26px 0 40px}
   .nav nav{display:none}
   .grid2,.grid3,.split{grid-template-columns:minmax(0,1fr)}.split{gap:34px}
@@ -262,22 +262,12 @@ footer p{margin:0 0 10px;max-width:820px}
         </tbody>
       </table>
     </div>
-    <div class="grid2" style="margin-top:20px">
+    <div style="margin-top:20px">
       <div class="tile rv">
         <h3>In the demo</h3>
         <p style="margin-bottom:14px">The same request in LM Studio. First take of each run, default settings.</p>
         <table><thead><tr><th>Language</th><th>N-ATLaS</th><th>WazoCore</th></tr></thead>
         <tbody><tr><td>Yoruba</td><td>160 tokens, 12.9 s</td><td>84 tokens, 7.8 s</td></tr><tr><td>Hausa</td><td>78 tokens, 8.0 s</td><td>55 tokens, 5.7 s</td></tr><tr><td>Igbo</td><td>121 tokens, 10.3 s</td><td>78 tokens, 7.5 s</td></tr></tbody></table>
-      </div>
-      <div class="tile rv">
-        <h3>Known limits</h3>
-        <p style="margin-bottom:14px">Two defects remain. Both are documented with workarounds.</p>
-        <table><tbody>
-          <tr><td class="k">Broken characters</td><td>About 1 reply in 1,000 fails. Retry with sampling.</td></tr>
-          <tr><td class="k">Yoruba loops</td><td>5 and 11 of 700 replies loop, against 2 for the original.</td></tr>
-          <tr><td class="k">Hausa</td><td>0.3 to 0.4 chrF++ below the original. The intervals include zero.</td></tr>
-          <tr><td class="k">Scope</td><td>Scored on English → X translation only.</td></tr>
-        </tbody></table>
       </div>
     </div>
     <p class="fine center">The full method, every table and the command behind each number are in <a href="https://github.com/Adeniyikayodee/wazocore/blob/main/docs/METHOD.md">docs/METHOD.md</a>.</p>
