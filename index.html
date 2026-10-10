@@ -22,6 +22,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "@id": "https://adeniyikayodee.github.io/wazocore-site/#software", "name": "WazoCore", "alternateName": "WazoCore Powered by Awarri.", "applicationCategory": "Large language model", "operatingSystem": "macOS, Windows, Linux", "url": "https://adeniyikayodee.github.io/wazocore-site/", "description": "N-ATLaS, Nigeria's open language model, with 15,000 new Yoruba, Hausa and Igbo tokens. Text in these languages takes 1.4 to 1.6 times fewer tokens and is written 1.6 to 1.7 times faster on the same laptop.", "inLanguage": ["yo", "ha", "ig", "en"], "isBasedOn": {"@type": "SoftwareApplication", "name": "N-ATLaS", "url": "https://huggingface.co/NCAIR1/N-ATLaS"}, "downloadUrl": "https://huggingface.co/mkbadeniyi/WazoCore-8B-v6-long", "codeRepository": "https://github.com/Adeniyikayodee/wazocore", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": [{"@id": "https://adeniyikayodee.github.io/wazocore-site/#kayode"}, {"@id": "https://adeniyikayodee.github.io/wazocore-site/#afolasade"}, {"@id": "https://adeniyikayodee.github.io/wazocore-site/#omowonuola"}], "keywords": "N-ATLaS, Yoruba, Hausa, Igbo, Nigerian languages, tokenizer, vocabulary expansion, llama.cpp, GGUF, LM Studio, NAIC 2026"}, {"@type": "Person", "@id": "https://adeniyikayodee.github.io/wazocore-site/#kayode", "name": "Kayode Adeniyi", "jobTitle": "AI Research Engineer", "affiliation": {"@type": "CollegeOrUniversity", "name": "Imperial College London"}, "sameAs": ["https://www.linkedin.com/in/kadeniyi/", "https://github.com/Adeniyikayodee", "https://huggingface.co/mkbadeniyi"]}, {"@type": "Person", "@id": "https://adeniyikayodee.github.io/wazocore-site/#afolasade", "name": "Afolasade Adeniyi", "jobTitle": "Product Manager and Data Analyst", "alumniOf": {"@type": "CollegeOrUniversity", "name": "Kwara State University"}}, {"@type": "Person", "@id": "https://adeniyikayodee.github.io/wazocore-site/#omowonuola", "name": "Omowonuola Adekanmbi", "jobTitle": "Legal Officer, Dual Qualified Lawyer (Nigeria and England & Wales)", "alumniOf": [{"@type": "CollegeOrUniversity", "name": "University of Cambridge"}, {"@type": "CollegeOrUniversity", "name": "Babcock University"}], "sameAs": ["https://www.linkedin.com/in/adekanmbi-omowonuola"]}, {"@type": "VideoObject", "name": "WazoCore demo: N-ATLaS and WazoCore side by side", "description": "The original N-ATLaS and WazoCore answer the same health-advice request in Yoruba, Hausa and Igbo in LM Studio on one laptop, followed by the method and results.", "thumbnailUrl": "https://adeniyikayodee.github.io/wazocore-site/assets/poster.jpg", "contentUrl": "https://adeniyikayodee.github.io/wazocore-site/assets/wazocore-demo.mp4", "uploadDate": "2026-10-09", "duration": "PT4M45S"}, {"@type": "WebSite", "url": "https://adeniyikayodee.github.io/wazocore-site/", "name": "WazoCore", "description": "Faster in your own language."}]}</script>
 <link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/inter-600.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(assets/inter-400.woff2) format("woff2")}
@@ -265,6 +266,17 @@ footer a{display:inline-block;padding:8px 0}
   #results .tile table th:first-child,#results .tile table td:first-child{width:24%;padding-left:0}#results .tile table th{overflow-wrap:normal}
   pre{font-size:11.5px;padding:22px 18px}
 }
+@media (max-width:860px){
+  .pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px}
+  .links a{display:inline-flex;align-items:center;min-height:44px}.links a::after{content:"›";margin-left:.3em}
+  .stage p a{display:block;padding:12px 0 6px}
+  .tabs button{min-height:44px}
+  summary{padding:12px 0}
+  .dots{gap:22px}.dots button:after{inset:-18px -11px}
+  footer a{padding:13px 0}
+  .langs em{font-size:12px}
+}
+@media (max-width:600px){#results th{font-size:12px}}
 </style>
 </head>
 <body class="no-js">
@@ -524,7 +536,7 @@ print(reply.choices[0].message.content)
     </div>
     <div class="from rv">
       <p class="eyebrow">Built by a team from</p>
-      <ul class="logos" aria-label="Institutions and companies the team members have studied or worked at"><li><img src="assets/logos/imperial.png" alt="Imperial College London" loading="lazy"></li><li><img src="assets/logos/unilorin.png" alt="University of Ilorin" loading="lazy"></li><li><img src="assets/logos/cambridge.png" alt="University of Cambridge" loading="lazy"></li><li><img src="assets/logos/babcock.png" alt="Babcock University" loading="lazy"></li><li><img src="assets/logos/oxford.png" alt="University of Oxford" loading="lazy"></li><li><img src="assets/logos/kwasu.png" alt="Kwara State University" loading="lazy"></li><li><img src="assets/logos/lse.png" alt="London School of Economics" loading="lazy"></li><li><img src="assets/logos/undp.png" alt="United Nations Development Programme" loading="lazy"></li><li><img src="assets/logos/flutterwave.png" alt="Flutterwave" loading="lazy"></li><li><img src="assets/logos/templars.png" alt="Templars" loading="lazy"></li><li><img src="assets/logos/cowrywise.png" alt="Cowrywise" loading="lazy"></li></ul>
+      <ul class="logos" aria-label="Institutions and companies the team members have studied or worked at"><li><img src="assets/logos/imperial.png" alt="Imperial College London" loading="lazy" width="640" height="70"></li><li><img src="assets/logos/unilorin.png" alt="University of Ilorin" loading="lazy" width="360" height="360"></li><li><img src="assets/logos/cambridge.png" alt="University of Cambridge" loading="lazy" width="600" height="126"></li><li><img src="assets/logos/babcock.png" alt="Babcock University" loading="lazy" width="128" height="140"></li><li><img src="assets/logos/oxford.png" alt="University of Oxford" loading="lazy" width="151" height="153"></li><li><img src="assets/logos/kwasu.png" alt="Kwara State University" loading="lazy" width="325" height="360"></li><li><img src="assets/logos/lse.png" alt="London School of Economics" loading="lazy" width="640" height="249"></li><li><img src="assets/logos/undp.png" alt="United Nations Development Programme" loading="lazy" width="177" height="360"></li><li><img src="assets/logos/flutterwave.png" alt="Flutterwave" loading="lazy" width="640" height="153"></li><li><img src="assets/logos/templars.png" alt="Templars" loading="lazy" width="673" height="166"></li><li><img src="assets/logos/cowrywise.png" alt="Cowrywise" loading="lazy" width="360" height="360"></li></ul>
     </div>
     <p class="fine center">An entry to the National AI Innovation Challenge (NAIC) 2026, Innovation &amp; Enterprise Track, PS1: Developer Infrastructure.</p>
   </div>
