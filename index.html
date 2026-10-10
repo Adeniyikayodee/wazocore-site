@@ -146,16 +146,20 @@ pre .c{color:#86868B}
 .chips.b .chip{background:#1C1C1E;color:#E5E5EA;box-shadow:inset 0 0 0 1px #3A3A3C}
 .chips.w .chip{background:var(--green);color:#fff}
 .rv.in .tk.on .chip,.no-js .chip{opacity:1;transform:none}
-.layers{background:var(--soft);border-radius:var(--r);padding:28px 26px 26px}
-.lcap{margin:0 0 16px;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.02em;text-transform:uppercase}
-.built{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
-.built span{padding:9px 15px;border-radius:980px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:15px;font-weight:600;color:var(--ink);opacity:0;transform:translateY(-10px);transition:opacity .5s,transform .5s;transition-delay:calc(var(--i) * 55ms)}
-.rv.in .built span,.no-js .built span{opacity:1;transform:none}
-.lbar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:15px 18px;border-radius:16px;font-size:15px;font-weight:600}
-.lbar em{font-style:normal;font-weight:500;font-size:13px;opacity:.75}
-.lbar.mid{background:#fff;color:var(--ink2);box-shadow:inset 0 0 0 1px var(--line);margin-bottom:9px}
-.lbar.base{background:var(--green);color:#fff;font-size:18px;padding:19px 18px;box-shadow:0 18px 40px -18px rgba(0,135,81,.6)}
-@media (prefers-reduced-motion:reduce){.built span{opacity:1;transform:none;transition:none}}
+.pstack{max-width:940px;margin:44px auto 0}
+.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+.pcard{background:var(--soft);border-radius:var(--r);padding:26px 24px 24px;text-align:left;display:flex;flex-direction:column;opacity:0;transform:translateY(-18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i) * 140ms + 150ms)}
+.rv.in .pcard,.no-js .pcard{opacity:1;transform:none}
+.plang{font-size:15px;font-weight:600;color:var(--green);margin-bottom:14px}
+.pmsg{margin:0 0 26px;padding:14px 16px;background:#fff;border-radius:18px 18px 18px 6px;font-size:16px;line-height:1.45;color:var(--ink);flex:1}
+.pcard b{font-size:clamp(44px,5.4vw,60px);line-height:1;letter-spacing:-.04em;font-weight:600;color:var(--ink)}
+.pcap{font-size:15px;color:var(--ink2);margin-top:8px}
+.ptok{font-size:13px;color:var(--muted);margin-top:4px}
+.pbase{display:flex;justify-content:space-between;align-items:baseline;gap:14px;background:var(--green);color:#fff;border-radius:22px;padding:24px 28px;box-shadow:0 26px 60px -26px rgba(0,135,81,.65)}
+.pbase b{font-size:24px;font-weight:600;letter-spacing:-.02em}.pbase span{font-size:15px;opacity:.85}
+.pmore{max-width:640px;margin:34px auto 0;font-size:19px;line-height:1.45;color:var(--ink2)}
+@media (max-width:860px){.pcards{grid-template-columns:minmax(0,1fr)}.pbase{flex-direction:column;gap:4px;align-items:flex-start;text-align:left}.pmsg{flex:none}}
+@media (prefers-reduced-motion:reduce){.pcard{opacity:1;transform:none;transition:none}}
 pre.swap{font-size:15px;line-height:1.9}
 pre .del{color:#A1A1A6;text-decoration:line-through;text-decoration-color:#636366}
 pre .add{color:#34C77B;font-weight:600}
@@ -311,27 +315,38 @@ footer p{margin:0 0 10px;max-width:820px}
 </section>
 
 <section class="plain" id="stack">
-  <div class="wrap split">
-    <div class="rv">
-      <p class="eyebrow">Where it fits</p>
-      <h2>The layer under every N-ATLaS product.</h2>
-      <p class="lead">Everything being built on N-ATLaS loads the same model file. Swap that file and each product writes Yoruba, Hausa and Igbo sooner. Prompts, client code and API stay as they are.</p>
-<pre class="swap"><span class="c"># before</span>
-<span class="del">llama-server -m N-ATLaS.Q4_K_M.gguf</span>
-
-<span class="c"># after</span>
-<span class="add">llama-server -m WazoCore-8B.Q4_K_M.gguf</span>
-
-<span class="c"># your application: no change</span></pre>
-    </div>
-    <div class="rv">
-      <div class="layers" role="img" aria-label="Products built on N-ATLaS, such as tutors, health lines, farm advisers, SDKs and gateways, all sit on one model file. WazoCore replaces that file.">
-        <p class="lcap">What teams are building</p>
-        <div class="built"><span style="--i:0">AI tutors</span><span style="--i:1">Health lines</span><span style="--i:2">Farm advisers</span><span style="--i:3">Market ledgers</span><span style="--i:4">Legal aid</span><span style="--i:5">Translators</span><span style="--i:6">Voice assistants</span><span style="--i:7">WhatsApp bots</span><span style="--i:8">Document chat</span><span style="--i:9">Civic services</span><span style="--i:10">Cyber safety</span><span style="--i:11">Mobile SDKs</span><span style="--i:12">API gateways</span><span style="--i:13">Developer kits</span></div>
-        <div class="lbar mid">Prompts, client code, API<em>unchanged</em></div>
-        <div class="lbar base"><b>WazoCore</b><em>the model file</em></div>
+  <div class="wrap center rv">
+    <p class="eyebrow">Where it fits</p>
+    <h2>One file. Every product faster.</h2>
+    <p class="lead">Everything built on N-ATLaS loads the same model file. WazoCore replaces it.</p>
+    <div class="pstack">
+      <div class="pcards">
+        <div class="pcard" style="--i:0">
+          <span class="plang">Yoruba</span>
+          <p class="pmsg" lang="yo">Fi omi ṣan ọwọ́ rẹ̀ pẹ̀lú sàbùkì kí o tó jẹun àti lẹ́yìn tí o bá ti lo ìlà.</p>
+          <b>1.63×</b>
+          <span class="pcap">more words per second</span>
+          <span class="ptok">84 tokens, down from 160</span>
+        </div>
+        <div class="pcard" style="--i:1">
+          <span class="plang">Hausa</span>
+          <p class="pmsg" lang="ha">Kula da Hannuwan ku da Sabulu Kafin Kiyaye su bayan Amfani da Toilet.</p>
+          <b>1.61×</b>
+          <span class="pcap">more words per second</span>
+          <span class="ptok">55 tokens, down from 78</span>
+        </div>
+        <div class="pcard" style="--i:2">
+          <span class="plang">Igbo</span>
+          <p class="pmsg" lang="ig">Sachaa aka gị na ncha tupu iri nri ma ọ bụ mgbe ị na-eji ụlọ mposi.</p>
+          <b>1.72×</b>
+          <span class="pcap">more words per second</span>
+          <span class="ptok">78 tokens, down from 121</span>
+        </div>
       </div>
+      <div class="pbase"><b>WazoCore</b><span>one model file under all of them</span></div>
     </div>
+    <p class="pmore">Tutors, health lines, farm advisers, translators, SDKs and gateways all load that one file. Prompts, client code and API stay as they are.</p>
+    <p class="fine">Replies are WazoCore's own, from the recorded demo: the first line of a hand-washing notice. Token counts cover the full reply. Speed measured on a laptop CPU.</p>
   </div>
 </section>
 
@@ -402,6 +417,7 @@ footer p{margin:0 0 10px;max-width:820px}
       <h2>Running in minutes.</h2>
       <p class="lead">Download the GGUF, start the server and call it with any OpenAI client. It runs offline on a laptop with 8 GB of memory or more.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn" href="https://huggingface.co/mkbadeniyi/WazoCore-8B-v6-long">Model on Hugging Face</a><a class="btn ghost" href="https://github.com/Adeniyikayodee/wazocore">Toolkit on GitHub</a></div>
+      <p class="fine">Already running N-ATLaS? Point <code>-m</code> at the WazoCore file and leave the rest of your application as it is.</p>
       <p class="fine">Building for another language? The same toolkit takes about two GPU hours per model.</p>
     </div>
     <div class="rv">
