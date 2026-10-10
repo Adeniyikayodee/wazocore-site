@@ -149,6 +149,16 @@ pre .c{color:#86868B}
 pre.swap{font-size:15px;line-height:1.9}
 pre .del{color:#A1A1A6;text-decoration:line-through;text-decoration-color:#636366}
 pre .add{color:#34C77B;font-weight:600}
+.slider{position:relative;margin-top:10px}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;outline:none}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;margin:0;padding:12px 8px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.slide figcaption{font-size:14px;color:var(--muted);margin-top:22px;max-width:560px}
+.stat{font-size:clamp(64px,12vw,132px);line-height:1;letter-spacing:-.05em;font-weight:600;color:var(--green);margin:0}
+.statline{font-size:clamp(22px,3.2vw,34px);line-height:1.2;letter-spacing:-.02em;font-weight:600;margin:14px auto 0;max-width:720px}
+.dots{display:flex;justify-content:center;gap:10px;margin-top:26px}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer;transition:background .3s,transform .3s}
+.dots button.on{background:var(--ink);transform:scale(1.25)}
 .quote{margin:0 auto;max-width:900px;font-size:clamp(28px,4.6vw,52px);line-height:1.12;letter-spacing:-.03em;font-weight:600}
 footer{padding:40px 0 70px;font-size:12px;color:var(--muted);background:var(--soft);border-top:1px solid #E8E8ED}
 footer p{margin:0 0 10px;max-width:820px}
@@ -311,8 +321,17 @@ footer p{margin:0 0 10px;max-width:820px}
 
 <section class="center" id="voice">
   <div class="wrap rv">
-    <blockquote class="quote">“The generation speed is night and day, making it actually usable for back-and-forth chat.”</blockquote>
-    <p class="fine">An external developer, after a blind test of both models on their own laptop.</p>
+    <p class="eyebrow">From the blind test</p>
+    <div class="slider" aria-roledescription="carousel" aria-label="Results and words from the blind test by external developers">
+      <div class="track" tabindex="0">
+        <figure class="slide"><blockquote class="quote">“The generation speed is night and day, making it actually usable for back-and-forth chat.”</blockquote><figcaption>An external developer, after testing both models unlabelled on their own laptop.</figcaption></figure>
+        <figure class="slide"><p class="stat">10 of 10</p><p class="statline">tasks where WazoCore finished first.</p><figcaption>Two external developers, five everyday tasks each, two unlabelled models.</figcaption></figure>
+        <figure class="slide"><p class="stat">2 of 2</p><p class="statline">testers chose WazoCore when asked to keep one model.</p><figcaption>The two models were labelled only A and B.</figcaption></figure>
+        <figure class="slide"><p class="stat">12 minutes</p><p class="statline">from download to a working call in their own code.</p><figcaption>Both testers, using LM Studio and a standard OpenAI client.</figcaption></figure>
+        <figure class="slide"><p class="stat">9 of 10</p><p class="statline">answers judged better than or equal to the original's.</p><figcaption>Native speakers of Yoruba and Hausa judging replies in their own language.</figcaption></figure>
+      </div>
+      <div class="dots" role="tablist" aria-label="Choose a slide"></div>
+    </div>
   </div>
 </section>
 
@@ -435,6 +454,21 @@ print(reply.choices[0].message.content)
     var p=document.querySelector('.tk[data-lang="'+t.dataset.lang+'"]');
     void p.offsetWidth; p.classList.add('on');
   })});
+})();
+(function(){
+  var t=document.querySelector('.track'); if(!t) return;
+  var slides=t.querySelectorAll('.slide'),dots=document.querySelector('.dots'),cur=0,timer=null,
+      still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  slides.forEach(function(_,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Slide '+(i+1)+' of '+slides.length);b.addEventListener('click',function(){go(i);stop()});dots.appendChild(b)});
+  function mark(i){cur=i;dots.querySelectorAll('button').forEach(function(b,k){b.classList.toggle('on',k===i)})}
+  function go(i){t.scrollTo({left:i*t.clientWidth,behavior:still?'auto':'smooth'});mark(i)}
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  function start(){if(still||timer)return;timer=setInterval(function(){go((cur+1)%slides.length)},5200)}
+  t.addEventListener('scroll',function(){var i=Math.round(t.scrollLeft/t.clientWidth);if(i!==cur)mark(i)},{passive:true});
+  ['pointerdown','keydown','wheel','touchstart'].forEach(function(e){t.addEventListener(e,stop,{passive:true})});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(Math.min(cur+1,slides.length-1));if(e.key==='ArrowLeft')go(Math.max(cur-1,0))});
+  mark(0);
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es[0].isIntersecting?start():stop()},{threshold:.4}).observe(t)}else{start()}
 })();
 </script>
 </body>
