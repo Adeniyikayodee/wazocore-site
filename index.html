@@ -160,26 +160,6 @@ pre .add{color:#34C77B;font-weight:600}
 .dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer;transition:background .3s,transform .3s}
 .dots button.on{background:var(--ink);transform:scale(1.25)}
 .quote{margin:0 auto;max-width:900px;font-size:clamp(28px,4.6vw,52px);line-height:1.12;letter-spacing:-.03em;font-weight:600}
-.scrub{display:none}
-.scrubbing #tokens{padding:0}
-.scrubbing #tokens .pin{position:sticky;top:0;min-height:100vh;display:flex;align-items:center;padding:64px 0 20px}
-.scrubbing #tokens .tall{height:240vh}
-.scrubbing .scrub{display:block;max-width:980px;margin:0 auto}
-.scrubbing .tkbox{display:none}
-.scrubbing #tokens .lead{margin-bottom:18px}
-.scrubbing #tokens .tabs{margin-bottom:18px}
-.scrubbing #sPhrase{margin:0 0 6px}
-@media (max-height:760px){.scrubbing #tokens .lead{display:none}}
-.sline{display:flex;align-items:baseline;justify-content:center;gap:14px;margin:0 0 22px}
-.swho{font-size:20px;font-weight:600;color:#A1A1A6;transition:color .3s}
-.scount{font-size:clamp(64px,9vw,108px);line-height:1;letter-spacing:-.05em;font-weight:600;color:#F5F5F7;font-variant-numeric:tabular-nums;min-width:1.25em;text-align:center}
-.sunit{font-size:20px;font-weight:600;color:#A1A1A6}
-.sgroups{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 14px;min-height:64px}
-.sg{position:relative;display:inline-flex}
-.sg .pcs{display:inline-flex;gap:calc(8px * (1 - var(--p)));opacity:calc(1 - var(--m))}
-.sg .pc{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:58px;padding:0 calc(6px + 8px * (1 - var(--p)));border-radius:13px;background:#1C1C1E;color:#E5E5EA;box-shadow:inset 0 0 0 1px #3A3A3C;font-size:25px;font-weight:600;white-space:pre}
-.sg .mg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:13px;background:var(--green);color:#fff;font-size:25px;font-weight:600;white-space:pre;opacity:var(--m)}
-.shint{font-size:13px;color:#636366;margin:22px 0 0;transition:opacity .3s}
 footer{padding:40px 0 70px;font-size:12px;color:var(--muted);background:var(--soft);border-top:1px solid #E8E8ED}
 footer p{margin:0 0 10px;max-width:820px}
 
@@ -190,7 +170,7 @@ footer p{margin:0 0 10px;max-width:820px}
 .rv.in .bar{transform:scaleX(1)}
 .no-js .rv{opacity:1;transform:none}.no-js .rv .bar{transform:none}
 
-@media (max-width:860px){.sg .pc{min-width:34px;height:46px;font-size:19px}.sg .mg{font-size:19px}.sgroups{gap:10px}.scrubbing #tokens .tall{height:220vh}.tabs{max-width:100%}.tabs button{padding:8px 12px;font-size:14px}.tkrow{grid-template-columns:1fr 56px;row-gap:8px}.tkrow .who{grid-column:1/-1}.chip{height:40px;min-width:36px;font-size:17px;padding:0 10px}pre.swap{font-size:12.5px}.logos{gap:12px}.logos li{width:calc(50% - 6px);height:112px;padding:22px}
+@media (max-width:860px){.tabs{max-width:100%}.tabs button{padding:8px 12px;font-size:14px}.tkrow{grid-template-columns:1fr 56px;row-gap:8px}.tkrow .who{grid-column:1/-1}.chip{height:40px;min-width:36px;font-size:17px;padding:0 10px}pre.swap{font-size:12.5px}.logos{gap:12px}.logos li{width:calc(50% - 6px);height:112px;padding:22px}
   section{padding:76px 0}.hero{padding-top:64px}.stage{margin-top:48px;padding:26px 0 40px}
   .nav nav{display:none}
   .grid2,.grid3,.split{grid-template-columns:minmax(0,1fr)}.split{gap:34px}
@@ -244,17 +224,11 @@ footer p{margin:0 0 10px;max-width:820px}
 </section>
 
 <section class="dark" id="tokens">
-  <div class="tall"><div class="pin"><div class="wrap center rv">
+  <div class="wrap center rv">
     <p class="eyebrow">The idea</p>
     <h2>Same words. Fewer pieces.</h2>
     <p class="lead">A model writes in tokens. Here is one phrase, "the school children", as each model has to write it.</p>
     <div class="tabs" role="tablist" aria-label="Language"><button type="button" class="on" data-lang="Yoruba">Yoruba</button><button type="button" class="" data-lang="Hausa">Hausa</button><button type="button" class="" data-lang="Igbo">Igbo</button><button type="button" class="" data-lang="English">English</button></div>
-    <div class="scrub" aria-hidden="true">
-      <p class="phrase" id="sPhrase"></p>
-      <div class="sline"><span class="swho" id="sWho">N-ATLaS</span><b class="scount" id="sCount">13</b><span class="sunit">tokens</span></div>
-      <div class="sgroups" id="sGroups"></div>
-      <p class="shint">Keep scrolling</p>
-    </div>
     <div class="tkbox"><div class="tk on" data-lang="Yoruba">
         <p class="phrase">Àwọn ọmọ ilé-ìwé</p>
         <div class="tkrow"><span class="who">N-ATLaS</span><div class="chips b"><span class="chip" style="--i:0">À</span><span class="chip" style="--i:1">w</span><span class="chip" style="--i:2">ọn</span><span class="chip" style="--i:3">␣</span><span class="chip" style="--i:4">ọ</span><span class="chip" style="--i:5">m</span><span class="chip" style="--i:6">ọ</span><span class="chip" style="--i:7">il</span><span class="chip" style="--i:8">é</span><span class="chip" style="--i:9">-</span><span class="chip" style="--i:10">ì</span><span class="chip" style="--i:11">w</span><span class="chip" style="--i:12">é</span></div><b>13</b></div>
@@ -273,7 +247,7 @@ footer p{margin:0 0 10px;max-width:820px}
         <div class="tkrow"><span class="who g">WazoCore</span><div class="chips w"><span class="chip" style="--i:0">The</span><span class="chip" style="--i:1">school</span><span class="chip" style="--i:2">children</span></div><b class="g">3</b></div>
       </div></div>
     <p class="fine">Real output of both tokenizers. A half mark means the model writes half of a letter as its own token. English is unchanged.</p>
-  </div></div></div>
+  </div>
 </section>
 
 <section class="soft" id="why">
@@ -495,41 +469,6 @@ print(reply.choices[0].message.content)
   t.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(Math.min(cur+1,slides.length-1));if(e.key==='ArrowLeft')go(Math.max(cur-1,0))});
   mark(0);
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){es[0].isIntersecting?start():stop()},{threshold:.4}).observe(t)}else{start()}
-})();
-(function(){
-  var DATA={"Yoruba": {"text": "Àwọn ọmọ ilé-ìwé", "n": 13, "m": 4, "g": [{"w": "Àwọn", "p": ["À", "w", "ọn"]}, {"w": " ọmọ", "p": [" ", "ọ", "m", "ọ"]}, {"w": " ilé", "p": [" il", "é"]}, {"w": "-ìwé", "p": ["-", "ì", "w", "é"]}]}, "Hausa": {"text": "ƙwallon ƙafa", "n": 8, "m": 3, "g": [{"w": "ƙ", "p": ["½ƙ", "½ƙ"]}, {"w": "wallon", "p": ["wall", "on"]}, {"w": " ƙafa", "p": [" ", "½ƙ", "½ƙ", "afa"]}]}, "Igbo": {"text": "Ndị obodo ahụ", "n": 6, "m": 3, "g": [{"w": "Ndị", "p": ["Nd", "ị"]}, {"w": " obodo", "p": [" ob", "odo"]}, {"w": " ahụ", "p": [" ah", "ụ"]}]}, "English": {"text": "The school children", "n": 3, "m": 3, "g": [{"w": "The", "p": ["The"]}, {"w": " school", "p": [" school"]}, {"w": " children", "p": [" children"]}]}};
-  var sec=document.getElementById('tokens'); if(!sec) return;
-  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(still||!('requestAnimationFrame' in window)||!CSS.supports('position','sticky')) return;
-  document.body.classList.add('scrubbing');
-  var tall=sec.querySelector('.tall'),G=document.getElementById('sGroups'),C=document.getElementById('sCount'),
-      Wh=document.getElementById('sWho'),Ph=document.getElementById('sPhrase'),hint=sec.querySelector('.shint'),cur=null,lang='Yoruba';
-  function show(s){return s===' '?'\u2423':s}
-  function build(l){
-    lang=l;cur=DATA[l];Ph.textContent=cur.text;G.innerHTML='';
-    cur.g.forEach(function(g){
-      var el=document.createElement('span');el.className='sg';
-      var pcs=document.createElement('span');pcs.className='pcs';
-      g.p.forEach(function(p){var c=document.createElement('span');c.className='pc';c.textContent=show(p.trim()===''?p:p.trim());pcs.appendChild(c)});
-      var mg=document.createElement('span');mg.className='mg';mg.textContent=g.w.trim();
-      el.appendChild(pcs);el.appendChild(mg);G.appendChild(el)});
-    paint();
-  }
-  function paint(){
-    var r=tall.getBoundingClientRect(),span=r.height-window.innerHeight,
-        t=span>0?Math.min(1,Math.max(0,-r.top/span)):0,
-        p=Math.min(1,Math.max(0,(t-0.18)/0.42)),m=Math.min(1,Math.max(0,(t-0.5)/0.22));
-    G.style.setProperty('--p',p.toFixed(3));G.style.setProperty('--m',m.toFixed(3));
-    var n=Math.round(cur.n-(cur.n-cur.m)*Math.min(1,Math.max(0,(t-0.2)/0.5)));
-    C.textContent=n;var done=m>0.6;
-    Wh.textContent=done?'WazoCore':'N-ATLaS';Wh.style.color=done?'#34C77B':'#A1A1A6';C.style.color=done?'#34C77B':'#F5F5F7';
-    hint.style.opacity=t>0.72?0:1;
-  }
-  var tick=false;
-  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){paint();tick=false})}},{passive:true});
-  window.addEventListener('resize',paint);
-  sec.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){build(b.dataset.lang)})});
-  build('Yoruba');
 })();
 </script>
 </body>
